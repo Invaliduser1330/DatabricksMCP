@@ -77,13 +77,13 @@ pip install -r requirements.txt
 ./scripts/dev/start_server.sh
 
 # Or manually using uv (default port 8000)
-uv run custom-mcp-server
+uv run mcp-server-databricks
 
 # Or specify a custom port
-uv run custom-mcp-server --port 8080
+uv run mcp-server-databricks --port 8080
 
 # Or using the installed command (after pip install -e .)
-custom-mcp-server --port 3000
+mcp-server-databricks --port 3000
 ```
 
 The server will start on `http://localhost:8000` by default (or your specified port).
@@ -297,10 +297,10 @@ The server can be configured using command-line arguments:
 
 ```bash
 # Change port
-uv run custom-mcp-server --port 8080
+uv run mcp-server-databricks --port 8080
 
 # Get help
-uv run custom-mcp-server --help
+uv run mcp-server-databricks --help
 ```
 
 The default configuration:

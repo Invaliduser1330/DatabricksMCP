@@ -61,7 +61,7 @@ app.yaml            # Databricks Apps deployment config
 
 ### `server/main.py`
 - Entry point that runs uvicorn server
-- Configured via `[project.scripts]` in `pyproject.toml` as `custom-mcp-server` command
+- Configured via `[project.scripts]` in `pyproject.toml` as `mcp-server-databricks` command
 - Accepts `--port` argument to customize server port (default: 8000)
 
 ## Authentication & Environment Detection
@@ -154,10 +154,10 @@ pytest tests/test_integration_server.py::test_call_tools
 ./scripts/dev/start_server.sh
 
 # Or directly with uv (default port 8000)
-uv run custom-mcp-server
+uv run mcp-server-databricks
 
 # Or with custom port
-uv run custom-mcp-server --port 8080
+uv run mcp-server-databricks --port 8080
 
 # Server runs in foreground, Ctrl+C to stop
 ```
@@ -310,7 +310,7 @@ The `scripts/dev/generate_oauth_token.py` script implements the [OAuth U2M (User
 
 ## Configuration
 
-- **Server port**: Use `--port` argument: `uv run custom-mcp-server --port 8080`
+- **Server port**: Use `--port` argument: `uv run mcp-server-databricks --port 8080`
 - **Server host**: Edit `server/main.py` to change from `0.0.0.0`
 - **Project name**: Update `pyproject.toml` name field
 - **MCP server name**: Update `FastMCP(name="...")` in `server/app.py`
