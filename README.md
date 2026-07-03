@@ -1,6 +1,6 @@
-# MCP Server - Hello World
+# Databricks MCP Server
 
-A simple, production-ready template for building Model Context Protocol (MCP) servers using FastMCP and FastAPI. This project demonstrates how to create custom tools that AI assistants can discover and invoke.
+A production-ready Model Context Protocol (MCP) server for Databricks workspace operations. It exposes Databricks-native tools that AI assistants and MCP clients can discover and invoke for catalog browsing, table inspection, notebook management, DBFS access, cluster discovery, and SQL warehouse discovery.
 
 ### Key Concepts
 
@@ -11,9 +11,11 @@ A simple, production-ready template for building Model Context Protocol (MCP) se
 ## Features
 
 - ✅ FastMCP-based server with HTTP streaming support
-- ✅ FastAPI integration for additional REST endpoints
-- ✅ Example tools: health check and user information
-- ✅ Production-ready project structure
+- ✅ Databricks authentication helpers for local and app-based execution
+- ✅ MCP tools for Unity Catalog browsing and table inspection
+- ✅ Workspace notebook import/export/listing support
+- ✅ DBFS listing and file operations
+- ✅ Cluster and SQL warehouse discovery
 - ✅ Ready for Databricks Apps deployment
 
 ## Project Structure
@@ -89,9 +91,30 @@ The server will start on `http://localhost:8000` by default (or your specified p
 ### Accessing the Server
 
 - **MCP Endpoints**: `http://localhost:8000/mcp`
-- **Available Tools**:
-    - `health`: Check server status
-    - `get_current_user`: Get authenticated user information
+
+### Available MCP Tools
+
+The server currently exposes the following tools:
+
+- `health`: Check server and connection health
+- `create_and_run_notebook`: Create a notebook in the workspace and run it on a cluster
+- `get_current_user`: Retrieve the authenticated Databricks user
+- `list_catalogs`: List Unity Catalog catalogs
+- `list_schemas`: List schemas for a catalog
+- `list_tables`: List tables in a catalog/schema
+- `get_table`: Retrieve table metadata and columns
+- `read_unity_catalog_table`: Read rows from a Unity Catalog table
+- `list_volumes`: List volumes in a catalog/schema
+- `list_dbfs`: List DBFS objects at a path
+- `dbfs_mkdirs`: Create a DBFS directory
+- `dbfs_delete`: Delete a DBFS file or directory
+- `dbfs_move`: Move a DBFS file or directory
+- `dbfs_read`: Read a DBFS file
+- `list_notebooks`: List notebooks and workspace objects
+- `export_notebook`: Export a notebook as source text
+- `import_notebook`: Import or overwrite a notebook in the workspace
+- `list_clusters`: List available clusters
+- `list_warehouses`: List SQL warehouses
 
 ## Testing the MCP Server
 
